@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+        <record model="ir.ui.view" id="view_move_import_tree">
+            <field name="name">account.move.import.tree</field>
+            <field name="model">account.move.import</field>
+            <field name="arch" type="xml">
+                <tree string="Account Move Import">
+                    <field name="filename"/>
+                    <field name="data" filename="filename"/>
+                    <field name="date"/>
+                </tree>
+            </field>
+        </record>
+
+    <record id="view_move_import_form" model="ir.ui.view">
+        <field name="name">account.move.import.form</field>
+        <field name="model">account.move.import</field>
+        <field name="arch" type="xml">
+        <form string="Account Move Import">
+        <header>
+            <button name="action_import_moves" string="Import" type="object"/>
+            <button name="clean_import_moves" string="Clean" type="object" 
+            attrs="{'invisible': [('move_line_import_ids', '=', [])]}"/>
+            <button name="action_validate_moves" string="Validate" type="object"
+             attrs="{'invisible': [('move_line_import_ids', '=', [])]}" />
+            <button name="action_process_moves" string="Process" type="object"
+             attrs="{'invisible': [('move_line_import_ids', '=', [])]}" />
+        </header>
+        <sheet string="Account Move Import">
+            <div class="oe_button_box" name="button_box">
+            </div>
+            <group>
+            <field name="data" filename="filename" placeholder="Choose a file to import..."/>
+            <field name="company_id" groups="base.group_multi_company"/>
+            <field name="journal_id" domain="[('company_id','=', company_id)]"/>
+            <field name="filename"  invisible="1"/>
+            <field name="date"/>
+            <field name="delimiter" />
+            </group>
+            <group name="load_block" colspan="4">
+            <field name="load_by_block" />
+            <field name="block_number" attrs="{'invisible': [('load_by_block', '=', False)]}" />
+            </group>
+            <field name="move_line_import_ids" nolabel="1"/>
+        </sheet>
+        </form>
+        </field>
+    </record>
+    <record id="action_account_move_import" model="ir.actions.act_window">
+        <field name="name">Account Move Import</field>
+        <field name="res_model">account.move.import</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="view_move_import_tree"/>
+        <field name="context">{}</field>
+    </record>
+
+    <record model="ir.ui.view" id="view_move_import_line_tree">
+        <field name="name">account.move.import.line.tree</field>
+        <field name="model">account.move.line.import</field>
+        <field name="arch" type="xml">
+            <tree string="Account Move Import Line" decoration-success="state=='pass'"
+            decoration-danger="state=='error'" decoration-muted="state=='done'"
+            decoration-info="state=='2validate'" editable="bottom">
+                <field name="move_name"/>
+<!--                 <field name="move_type"/> -->
+                <field name="account"/>
+                <field name="move_date"/>
+                <field name="partner"/>
+                <field name="description"/>
+                <field name="maturity_date"/>
+                <field name="debit"/>
+                <field name="credit"/>
+                <field name="currency"/>
+                <field name="amount_currency"/>
+                <field name="analytic_account"/>
+                <field name="journal_entry"/>
+                <field name="account_replace"/>
+                <field name="state" />
+                <button name="show_move_import_log" string="Log" type="object"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_move_import_line_form">
+        <field name="name">account.move.import.line.form</field>
+        <field name="model">account.move.line.import</field>
+        <field name="arch" type="xml">
+            <form string="Account Move Import Line">
+            <group>
+                <field name="account"/>
+                <field name="move_date"/>
+                <field name="partner"/>
+                <field name="description"/>
+                <field name="maturity_date"/>
+                <field name="debit"/>
+                <field name="credit"/>
+                <field name="currency"/>
+                <field name="amount_currency"/>
+                <field name="analytic_account"/>
+                <field name="journal_entry"/>
+                <field name="account_replace"/>
+                <field name="state" />
+                <button name="show_move_import_log" string="Log" type="object"/>
+            </group>
+            </form>
+        </field>
+    </record>
+    <record id="view_move_import_line_search" model="ir.ui.view">
+        <field name="name">account.move.import.line.search</field>
+        <field name="model">account.move.line.import</field>
+        <field name="arch" type="xml">
+            <search string="Search Move Import Line">
+               <field name="account"/>
+               <field name="move_date"/>
+               <field name="partner"/>
+               <field name="description"/>
+               <field name="maturity_date"/>
+               <field name="debit"/>
+               <field name="credit"/>
+               <field name="currency"/>
+               <field name="analytic_account"/>
+               <field name="state" />
+               <group expand="0" string="Group By">
+                   <filter string="Account" name="account" domain="[]" context="{'group_by': 'account'}"/>
+                   <filter string="Partner" name="partner" domain="[]" context="{'group_by': 'partner'}"/>
+                   <filter string="Analytic Account" name="analytic_account" domain="[]" context="{'group_by': 'analytic_account'}"/>
+                   <filter string="State" name="state" domain="[]" context="{'group_by': 'state'}"/>
+               </group>
+           </search>
+        </field>
+     </record>
+
+    <record model="ir.ui.view" id="view_move_import_line_log_form">
+        <field name="name">account.move.import.line.form</field>
+        <field name="model">account.move.line.import</field>
+        <field eval="20" name="priority"/>
+        <field name="arch" type="xml">
+            <form string="Account Move Import Line Log">
+            <group>
+                <field name="log_info" readonly="1"/>
+            </group>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_account_move_line_import" model="ir.actions.act_window">
+        <field name="name">Account Move Import</field>
+        <field name="res_model">account.move.line.import</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="view_move_import_line_tree"/>
+        <field name="context">{}</field>
+    </record>
+
+    <menuitem id="menu_import_accounting_entries"
+            name="Import Accounting Entries"
+            sequence="40"
+            groups="account.group_account_user"
+            parent="account.menu_finance_entries_accounting_entries"/>
+    <menuitem id="import_accounting_entries"
+            name="Import Accounting Entries"
+            action="action_account_move_import"
+            groups="account.group_account_user"
+            parent="menu_import_accounting_entries"/>
+    <menuitem id="import_accounting_entrie_lines"
+        name="Import Accounting Entrie Lines"
+        action="action_account_move_line_import"
+        groups="account.group_account_user"
+        parent="menu_import_accounting_entries"/>
+</odoo>

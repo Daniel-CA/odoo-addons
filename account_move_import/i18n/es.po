@@ -1,0 +1,162 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* account_move_import
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-11-09 08:12+0000\n"
+"PO-Revision-Date: 2018-11-09 09:38+0100\n"
+"Last-Translator: Daniel <danielcampos@avanzosc.es>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Poedit 1.5.4\n"
+
+#. module: account_move_import
+#: code:addons/account_move_import/tests/test_account_move_import.py:81
+#: code:addons/account_move_import/wizard/import_account_move.py:76
+#, python-format
+msgid "Account not found"
+msgstr "Cuenta no encontrada"
+
+#. module: account_move_import
+#: model:ir.ui.view,arch_db:account_move_import.view_import_account_move
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: account_move_import
+#: model:ir.model.fields,field_description:account_move_import.field_import_account_move_create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: account_move_import
+#: model:ir.model.fields,field_description:account_move_import.field_import_account_move_create_date
+msgid "Created on"
+msgstr "Creado en"
+
+#. module: account_move_import
+#: model:ir.model.fields,help:account_move_import.field_import_account_move_delimeter
+msgid "Default delimeter is \",\""
+msgstr "Delimitador por defecto es \",\""
+
+#. module: account_move_import
+#: model:ir.model.fields,field_description:account_move_import.field_import_account_move_delimeter
+msgid "Delimeter"
+msgstr "Delimitador"
+
+#. module: account_move_import
+#: model:ir.model.fields,field_description:account_move_import.field_import_account_move_display_name
+msgid "Display Name"
+msgstr "Nombre mostrado"
+
+#. module: account_move_import
+#: model:ir.model.fields,field_description:account_move_import.field_import_account_move_data
+msgid "File"
+msgstr "Archivo"
+
+#. module: account_move_import
+#: model:ir.model.fields,field_description:account_move_import.field_import_account_move_name
+msgid "Filename"
+msgstr "Nombre de archivo"
+
+#. module: account_move_import
+#: model:ir.model.fields,field_description:account_move_import.field_import_account_move_id
+msgid "ID"
+msgstr "ID"
+
+#. module: account_move_import
+#: model:ir.ui.view,arch_db:account_move_import.view_import_account_move
+msgid "Import"
+msgstr "Importar"
+
+#. module: account_move_import
+#: model:ir.actions.act_window,name:account_move_import.action_import_account_move
+#: model:ir.ui.view,arch_db:account_move_import.view_import_account_move
+msgid "Import Account Move"
+msgstr "Importar movimiento de asiento"
+
+#. module: account_move_import
+#: model:ir.model,name:account_move_import.model_import_account_move
+#: model:ir.ui.view,arch_db:account_move_import.view_move_form
+msgid "Import account move"
+msgstr "Importar movimiento de asiento"
+
+#. module: account_move_import
+#: model:ir.model.fields,field_description:account_move_import.field_import_account_move___last_update
+msgid "Last Modified on"
+msgstr "Última modifación en"
+
+#. module: account_move_import
+#: model:ir.model.fields,field_description:account_move_import.field_import_account_move_write_uid
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: account_move_import
+#: model:ir.model.fields,field_description:account_move_import.field_import_account_move_write_date
+msgid "Last Updated on"
+msgstr "Última actualización en"
+
+#. module: account_move_import
+#: code:addons/account_move_import/wizard/import_account_move.py:143
+#, python-format
+msgid "Line Error:"
+msgstr "Error en linea:"
+
+#. module: account_move_import
+#: code:addons/account_move_import/wizard/import_account_move.py:128
+#, python-format
+msgid "Not 'account' or 'partner' keys found"
+msgstr "Encabezados 'account' o 'partner' no encontrados"
+
+#. module: account_move_import
+#: code:addons/account_move_import/wizard/import_account_move.py:123
+#, python-format
+msgid "Not a valid file!"
+msgstr "¡No es un archivo valido!"
+
+#. module: account_move_import
+#: code:addons/account_move_import/tests/test_account_move_import.py:77
+#: code:addons/account_move_import/wizard/import_account_move.py:54
+#, python-format
+msgid "Not line name defined"
+msgstr "Nombre de linea no definido"
+
+#. module: account_move_import
+#: code:addons/account_move_import/wizard/import_account_move.py:29
+#, python-format
+msgid "Partner not found"
+msgstr "Empresa no encontrada"
+
+#. module: account_move_import
+#: model:ir.ui.view,arch_db:account_move_import.view_import_account_move
+msgid ""
+"The file must have 2 column keys:             'reference' => account move "
+"reference             'account' => account code"
+msgstr ""
+"El archivo debe tener al menos 2 encabezados de columna "
+"obligatoriamente:           'reference' => para la referencia del apunte del "
+"asiento            'account' => para el código de cuenta"
+
+#. module: account_move_import
+#: code:addons/account_move_import/tests/test_account_move_import.py:88
+#: code:addons/account_move_import/wizard/import_account_move.py:86
+#, python-format
+msgid "Wrong amount in account"
+msgstr "Error de cantidad en la cuenta"
+
+#. module: account_move_import
+#: code:addons/account_move_import/tests/test_account_move_import.py:95
+#: code:addons/account_move_import/wizard/import_account_move.py:97
+#, python-format
+msgid "Wrong currency code"
+msgstr "Error de código de divisa"
+
+#. module: account_move_import
+#: code:addons/account_move_import/wizard/import_account_move.py:110
+#, python-format
+msgid "You need to select an account move"
+msgstr "Necesitas seleccionar un asiento contable"
